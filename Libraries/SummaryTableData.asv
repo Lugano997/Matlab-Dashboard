@@ -1,0 +1,38 @@
+function SummaryPortStatTable = SummaryTableData(PortfolioData,Currency)
+
+SummaryTable = table();
+for i = 1:size(PortfolioData,1)
+    Dates(i,1) = PortfolioData{i,1};
+end
+
+SummaryTable.Date = Dates;
+
+for i = 1:size(PortfolioData,1)
+    
+    TempQ = PortfolioData{i,2};
+    TempCurrency = PortfolioData{i,5};
+    TempOptionType = PortfolioData{i,6};
+    TempCallPut = PortfolioData{i,7};
+    TempStrike = PortfolioData{i,8};
+    TempMaturity = PortfolioData{i,9};
+    
+    
+    SummaryTable.NetPosition(i) = sum(TempQ);
+    SummaryTable.CallNumber(i) = sum(TempQ(TempCallPut == "CALL"));
+    SummaryTable.PutNumber(i) = sum(TempQ(TempCallPut == "PUT"));
+    SummaryTable.LongNumber(i) = nnz(TempQ > 0);
+    SummaryTable.ShortNumber(i) = nnz(TempQ < 0);
+    SummaryTable.MeanExpiration(i) = mean(years(TempMaturity-Dates(i)));
+    SummaryTable.VanillaNumber(i) = nnz(TempOptionType == "VANILLA"); 
+    SummaryTable.BarrierNumber(i) = nnz(TempOptionType == "BARRIER"); 
+    SummaryTable.BinaryNumber(i) = nnz(TempOptionType == "BINARY"); 
+    SummaryTable.LookbackNumber(i) = nnz(TempOptionType == "LOOKBACK"); 
+    
+end
+
+
+SummaryPortStatTable = SummaryTable;
+
+
+end
+

@@ -1,0 +1,81 @@
+<deployment-project plugin="plugin.apptool" plugin-version="1.0">
+  <configuration build-checksum="1366561418" file="C:\Users\lucac\Documents\GitHub\Matlab-Dashnoard\Risk Management Dashboard.prj" location="C:\Users\lucac\Documents\GitHub\Matlab-Dashnoard" name="Risk Management Dashboard" target="target.mlapps" target-name="Package App">
+    <param.appname>Risk Management Dashboard</param.appname>
+    <param.authnamewatermark>Luca Celeste</param.authnamewatermark>
+    <param.email />
+    <param.company>The Black Swan</param.company>
+    <param.icon>${PROJECT_ROOT}\Risk Management Dashboard_resources\icon_24.png</param.icon>
+    <param.icons>
+      <file>${PROJECT_ROOT}\Risk Management Dashboard_resources\icon_48.png</file>
+      <file>${PROJECT_ROOT}\Risk Management Dashboard_resources\icon_24.png</file>
+      <file>${PROJECT_ROOT}\Risk Management Dashboard_resources\icon_16.png</file>
+    </param.icons>
+    <param.summary />
+    <param.description />
+    <param.screenshot>C:\Users\lucac\AppData\Local\Temp\tp6e12d803_49fc_402e_a6cc_a71379ef57db.png</param.screenshot>
+    <param.version>0.3.0.5</param.version>
+    <param.products.name>
+      <item>Datafeed Toolbox</item>
+      <item>Financial Instruments Toolbox</item>
+      <item>Financial Toolbox</item>
+      <item>Risk Management Toolbox</item>
+    </param.products.name>
+    <param.products.id>
+      <item>50</item>
+      <item>136</item>
+      <item>30</item>
+      <item>150</item>
+    </param.products.id>
+    <param.products.version>
+      <item>5.9.2</item>
+      <item>3.1</item>
+      <item>6.0</item>
+      <item>1.8</item>
+    </param.products.version>
+    <param.platforms />
+    <param.output>${PROJECT_ROOT}</param.output>
+    <param.guid>da0a9350-6cc5-4eca-8d44-8bfc0162942a</param.guid>
+    <unset>
+      <param.email />
+      <param.summary />
+      <param.description />
+      <param.platforms />
+      <param.output />
+    </unset>
+    <fileset.main>
+      <file>${PROJECT_ROOT}\PRMIA.mlapp</file>
+    </fileset.main>
+    <fileset.depfun>
+      <file>${PROJECT_ROOT}\CurrencySetError.mlapp</file>
+      <file>${PROJECT_ROOT}\dlog.mlx</file>
+      <file>${PROJECT_ROOT}\getMarketDataViaYahooNew.mlx</file>
+      <file>${PROJECT_ROOT}\RateandSettleDialog.mlapp</file>
+      <file>${PROJECT_ROOT}\RateWarningDialog.mlapp</file>
+    </fileset.depfun>
+    <fileset.resources />
+    <fileset.package />
+    <build-deliverables>
+      <file location="C:\Users\lucac\Documents\GitHub" name="Matlab-Dashnoard" optional="false">C:\Users\lucac\Documents\GitHub\Matlab-Dashnoard</file>
+    </build-deliverables>
+    <workflow />
+    <matlab>
+      <root>C:\Program Files\MATLAB\R2020b</root>
+      <toolboxes />
+    </matlab>
+    <platform>
+      <unix>false</unix>
+      <mac>false</mac>
+      <windows>true</windows>
+      <win2k>false</win2k>
+      <winxp>false</winxp>
+      <vista>false</vista>
+      <linux>false</linux>
+      <solaris>false</solaris>
+      <osver>10.0</osver>
+      <os32>false</os32>
+      <os64>true</os64>
+      <arch>win64</arch>
+      <matlab>true</matlab>
+    </platform>
+  </configuration>
+</deployment-project>

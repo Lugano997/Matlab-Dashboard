@@ -99,7 +99,7 @@ end
 % PLOT THE VOLATILITY SURFACE
 surf(x,surface.T,surface.M,surface.IV)
 axis(x,"tight");
-title(x,'Implied Volatility Surface');
+title(x,'Implied Volatility Surface',"Color",'w');
 xlabel(x,'Time to Matutity ');
 ylabel(x,'Moneyness ');
 zlabel(x,'Implied Volatility ');

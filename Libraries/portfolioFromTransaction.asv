@@ -3,7 +3,7 @@ function [OutputPortfolio,RevenuesOut,CurrencyRevOut,DatesRevOut,CostsOut,Curren
     PortLen = size(PortfolioData,1);
     CostLen = size(Costs,1);
     RevLen = size(Revenues,1);
-    DateCostLen = size(DateCost,1);
+    DateCostLen = size(DatesCost,1);
     DatesRevLen = size(DatesRev,1);
     CurrencyCostLen = size(CurrencyCost,1);
     CurrencyRevLen = size(CurrencyRev,1);
@@ -60,6 +60,10 @@ TEST = checkTransactions(Instr1, Instr2,Currency1,Currency2);
                 Costs(CostLen+i,1) = -Prices2.Price(i);
                 CurrencyCost(CurrencyCostLen+i,1) = Currency2(i);
                 DatesCost(DateCostLen+i,1) = Date2;
+                
+                Revenues(RevLen+i,1) = Prices2.Price(i);
+               CurrencyRev(CurrencyRevLen+i,1) = Currency2(i);
+               DatesRev(DatesRevLen+i,1) = Date2;
             else
                Revenues(RevLen+i,1) = Prices2.Price(i);
                CurrencyRev(CurrencyRevLen+i,1) = Currency2(i);
@@ -70,7 +74,7 @@ TEST = checkTransactions(Instr1, Instr2,Currency1,Currency2);
         else if nnz(TEST(i,:)) == 1
            NewQ([TEST(i,:) logical(zeros([1 NewInstADDED_Counter]))]) =  sum([Q1(TEST(i,:)) Q2(i)]);
            
-          if Q2(i) > 0
+            if Q2(i) > 0
                 Costs(CostLen+i,1) = -Prices2.Price(i);
                 CurrencyCost(CurrencyCostLen+i,1) = Currency2(i);
                 DatesCost(DateCostLen+i,1) = Date2;
@@ -78,12 +82,24 @@ TEST = checkTransactions(Instr1, Instr2,Currency1,Currency2);
                Revenues(RevLen+i,1) = Prices2.Price(i);
                CurrencyRev(CurrencyRevLen+i,1) = Currency2(i);
                DatesRev(DatesRevLen+i,1) = Date2;
-          end
+            end
            
             else if nnz(TEST(i,:)) > 1
-                    [f,co] = find(TEST(i,:));
-                    NewZero = zeros(length(TEST(i,:)))
-                    NewQ([ logical(zeros([1 NewInstADDED_Counter]))]) =  sum([Q1(TEST(i,:)) Q2(i)]);
+                    [~,f] = find(TEST(i,:),length(Instr1));
+                    NewZero = zeros([1 length(TEST(i,:))]);
+                    NewZero(f(i)) = 1;
+                    NewTEST = logical(NewZero);
+                    NewQ([ NewTEST logical(zeros([1 NewInstADDED_Counter]))]) =  sum([Q1(NewTEST) Q2(i)]);
+                    
+                    if Q2(i) > 0
+                        Costs(CostLen+i,1) = -Prices2.Price(i);
+                        CurrencyCost(CurrencyCostLen+i,1) = Currency2(i);
+                        DatesCost(DateCostLen+i,1) = Date2;
+                    else
+                        Revenues(RevLen+i,1) = Prices2.Price(i);
+                        CurrencyRev(CurrencyRevLen+i,1) = Currency2(i);
+                        DatesRev(DatesRevLen+i,1) = Date2;
+                    end
                 end
             end
         

@@ -60,25 +60,42 @@ TEST = checkTransactions(Instr1, Instr2,Currency1,Currency2);
                 Costs(CostLen+i,1) = -Prices2.Price(i);
                 CurrencyCost(CurrencyCostLen+i,1) = Currency2(i);
                 DatesCost(DateCostLen+i,1) = Date2;
+                
+                Revenues(RevLen+i,1) = 0;
+               CurrencyRev(CurrencyRevLen+i,1) = categorical("NO C");
+               DatesRev(DatesRevLen+i,1) = Date2;
             else
                Revenues(RevLen+i,1) = Prices2.Price(i);
                CurrencyRev(CurrencyRevLen+i,1) = Currency2(i);
                DatesRev(DatesRevLen+i,1) = Date2;
+               
+               Costs(CostLen+i,1) = 0;
+                CurrencyCost(CurrencyCostLen+i,1) = categorical("NO C");
+                DatesCost(DateCostLen+i,1) = Date2;
             end
             
             
         else if nnz(TEST(i,:)) == 1
            NewQ([TEST(i,:) logical(zeros([1 NewInstADDED_Counter]))]) =  sum([Q1(TEST(i,:)) Q2(i)]);
            
-            if Q2(i) > 0
+                      if Q2(i) > 0
                 Costs(CostLen+i,1) = -Prices2.Price(i);
                 CurrencyCost(CurrencyCostLen+i,1) = Currency2(i);
                 DatesCost(DateCostLen+i,1) = Date2;
+                
+                Revenues(RevLen+i,1) = 0;
+               CurrencyRev(CurrencyRevLen+i,1) = categorical("NO C");
+               DatesRev(DatesRevLen+i,1) = Date2;
             else
                Revenues(RevLen+i,1) = Prices2.Price(i);
                CurrencyRev(CurrencyRevLen+i,1) = Currency2(i);
                DatesRev(DatesRevLen+i,1) = Date2;
+               
+               Costs(CostLen+i,1) = 0;
+                CurrencyCost(CurrencyCostLen+i,1) = categorical("NO C");
+                DatesCost(DateCostLen+i,1) = Date2;
             end
+            
            
             else if nnz(TEST(i,:)) > 1
                     [~,f] = find(TEST(i,:),length(Instr1));
@@ -88,14 +105,23 @@ TEST = checkTransactions(Instr1, Instr2,Currency1,Currency2);
                     NewQ([ NewTEST logical(zeros([1 NewInstADDED_Counter]))]) =  sum([Q1(NewTEST) Q2(i)]);
                     
                     if Q2(i) > 0
-                        Costs(CostLen+i,1) = -Prices2.Price(i);
-                        CurrencyCost(CurrencyCostLen+i,1) = Currency2(i);
-                        DatesCost(DateCostLen+i,1) = Date2;
+                Costs(CostLen+i,1) = -Prices2.Price(i);
+                CurrencyCost(CurrencyCostLen+i,1) = Currency2(i);
+                DatesCost(DateCostLen+i,1) = Date2;
+                
+                Revenues(RevLen+i,1) = 0;
+               CurrencyRev(CurrencyRevLen+i,1) = categorical("NO C");
+               DatesRev(DatesRevLen+i,1) = Date2;
                     else
-                        Revenues(RevLen+i,1) = Prices2.Price(i);
-                        CurrencyRev(CurrencyRevLen+i,1) = Currency2(i);
-                        DatesRev(DatesRevLen+i,1) = Date2;
+               Revenues(RevLen+i,1) = Prices2.Price(i);
+               CurrencyRev(CurrencyRevLen+i,1) = Currency2(i);
+               DatesRev(DatesRevLen+i,1) = Date2;
+               
+               Costs(CostLen+i,1) = 0;
+                CurrencyCost(CurrencyCostLen+i,1) = categorical("NO C");
+                DatesCost(DateCostLen+i,1) = Date2;
                     end
+            
                 end
             end
         

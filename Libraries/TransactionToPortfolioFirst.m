@@ -7,6 +7,13 @@ for i = 1:size(TransactionData,1)
 end
   Date1 = Dates(1);
 
+Entrata = [];
+Uscita = [];
+CurrencyCost = categorical();
+CurrencyRev = categorical();
+DatesRevenue = datetime("today");
+DatesCosts = datetime("today");
+
 
                  
                  
@@ -27,10 +34,18 @@ end
                 Entrata(i,1) = -InstrumentPrice1.Price(i);
                 CurrencyRev(i,1) = CurrencyDAY1(i);
                 DatesRevenue(i,1) = Date1;
+                
+                Uscita(i,1) = 0;
+                CurrencyCost(i,1) = categorical("NO C");
+                DatesCosts(i,1) = Date1;
             else
                 Uscita(i,1) = InstrumentPrice1.Price(i);
                 CurrencyCost(i,1) = CurrencyDAY1(i);
                 DatesCosts(i,1) = Date1;
+                
+                Entrata(i,1) = 0;
+                CurrencyRev(i,1) = categorical("NO C");
+                DatesRevenue(i,1) = Date1;
             end
      end
     

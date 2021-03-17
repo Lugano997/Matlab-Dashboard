@@ -1,4 +1,4 @@
-function [ES, VAR, PortRet, InitialValue] =  Varstepladder(LastPrice, RiskHorizonFactor, Quantili, TempPricer, TempInstruments, TempQuantities, ProgressBar)
+function [ES, VAR, PortRet, InitialValue] =  Varstepladder(LastPrice, RiskHorizonFactor, Quantili, TempPricer, TempInstruments, TempQuantities, ProgressBar, Prog, TotLen)
 ProgressBar.Value = 0;
 
 
@@ -17,12 +17,12 @@ VAR_Scenarios = exp(Quantili.*RiskHorizonFactor)*LastPrice;
 
 VAR_Scenarios_SpotPrice = [VAR_Scenarios ; LastPrice];
 
-
+Msg = strjoin(["Creating VaR:" sprintf(" day %d of %d",Prog, TotLen) ]);
 
 SummaryTableVAR = array2table(zeros([length(VAR_Scenarios_SpotPrice) 7])); %PREALLOCAZIONE
 for i = 1:length(VAR_Scenarios_SpotPrice)
     ProgressBar.Value = i/length(VAR_Scenarios_SpotPrice);
-    
+    ProgressBar.Message = [ Msg sprintf("Scenario %d of %d",i, length(VAR_Scenarios_SpotPrice))];  
     for k= 1:length(TempPricer) 
         TempPricer(k).SpotPrice = VAR_Scenarios_SpotPrice(i);
     end

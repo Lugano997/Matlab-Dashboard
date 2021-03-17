@@ -1,5 +1,6 @@
-function [ES, VAR, PortRet, InitialValue] =  Varstepladder(LastPrice, RiskHorizonFactor, Quantili, TempPricer, TempInstruments, TempQuantities)
-d = uiprogressdlg(app.UIFigure
+function [ES, VAR, PortRet, InitialValue] =  Varstepladder(LastPrice, RiskHorizonFactor, Quantili, TempPricer, TempInstruments, TempQuantities, ProgressBar)
+ProgressBar.Value = 0;
+
 
 
 
@@ -16,9 +17,12 @@ VAR_Scenarios = exp(Quantili.*RiskHorizonFactor)*LastPrice;
 
 VAR_Scenarios_SpotPrice = [VAR_Scenarios ; LastPrice];
 
+Msg = ProgressBar.Message;
 
 SummaryTableVAR = array2table(zeros([length(VAR_Scenarios_SpotPrice) 7])); %PREALLOCAZIONE
 for i = 1:length(VAR_Scenarios_SpotPrice)
+    ProgressBar.Value = i/length(VAR_Scenarios_SpotPrice);
+    ProgressBar.Message = [ Msg fprinf("Scenario %d of %s",i, length(VAR_Scenarios_SpotPrice))];  
     for k= 1:length(TempPricer) 
         TempPricer(k).SpotPrice = VAR_Scenarios_SpotPrice(i);
     end

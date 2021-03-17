@@ -4,7 +4,7 @@ function [Gamma, Delta, Prices, Maturities] =  GreekSensitivities(PriceMatrix, S
 
 SelectedSerie = PriceMatrix(:,SelettoreSerieNum);
 Min = min(SelectedSerie);
-Max = max(SelectedSerie)-0.4;
+Max = max(SelectedSerie);
 
 Prices = linspace(Min,Max,100);
 Maturities = 30:30:365;

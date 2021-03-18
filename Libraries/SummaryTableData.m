@@ -12,14 +12,14 @@ function SummaryPortStatTable = SummaryTableData(PortfolioData,Currency)
     SummaryTable.Date = DatesVector;
 
 % INIZIALIZZAZIONE
-    TempInstr = PortfolioData{1,2};
-    TempPricer = PortfolioData{1,3};
-    TempQ = PortfolioData{1,4};
-    TempCurrency = PortfolioData{1,5}';
-    TempOptionType = PortfolioData{1,6}';
-    TempCallPut = PortfolioData{1,7}';
-    TempStrike = PortfolioData{1,8}';
-    TempMaturity = PortfolioData{1,9}';
+    TempInstr = PortfolioData{1,2}';
+    TempPricer = PortfolioData{1,3}';
+    TempQ = PortfolioData{1,4}';
+    TempCurrency = PortfolioData{1,5};
+    TempOptionType = PortfolioData{1,6};
+    TempCallPut = PortfolioData{1,7};
+    TempStrike = PortfolioData{1,8};
+    TempMaturity = PortfolioData{1,9};
     
     
 
@@ -42,14 +42,14 @@ function SummaryPortStatTable = SummaryTableData(PortfolioData,Currency)
 if size(PortfolioData,1) > 1    
     for i = 2:size(PortfolioData,1)
         
-    TempInstr = PortfolioData{i,2};
-    TempPricer = PortfolioData{i,3};
-    TempQ = PortfolioData{i,4};
-    TempCurrency = PortfolioData{i,5}';
-    TempOptionType = PortfolioData{i,6}';
-    TempCallPut = PortfolioData{i,7}';
-    TempStrike = PortfolioData{i,8}';
-    TempMaturity = PortfolioData{i,9}';
+    TempInstr = PortfolioData{i,2}';
+    TempPricer = PortfolioData{i,3}';
+    TempQ = PortfolioData{i,4}';
+    TempCurrency = PortfolioData{i,5};
+    TempOptionType = PortfolioData{i,6};
+    TempCallPut = PortfolioData{i,7};
+    TempStrike = PortfolioData{i,8};
+    TempMaturity = PortfolioData{i,9};
     
     
 

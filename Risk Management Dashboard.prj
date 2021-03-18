@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.apptool" plugin-version="1.0">
-  <configuration build-checksum="761009920" file="C:\Users\Luca\Documents\GitHub\Matlab-Dashboard\Risk Management Dashboard.prj" location="C:\Users\Luca\Documents\GitHub\Matlab-Dashboard" name="Risk Management Dashboard" target="target.mlapps" target-name="Package App">
+  <configuration build-checksum="3362421906" file="C:\Users\Luca\Documents\GitHub\Matlab-Dashboard\Risk Management Dashboard.prj" location="C:\Users\Luca\Documents\GitHub\Matlab-Dashboard" name="Risk Management Dashboard" target="target.mlapps" target-name="Package App">
     <param.appname>Risk Management Dashboard</param.appname>
     <param.authnamewatermark>Luca Celeste</param.authnamewatermark>
     <param.email />
@@ -12,7 +12,7 @@
     </param.icons>
     <param.summary />
     <param.description />
-    <param.screenshot>C:\Users\Luca\AppData\Local\Temp\tp6dc5fb2e_9a3b_4de8_b343_9864271f43d5.png</param.screenshot>
+    <param.screenshot>C:\Users\Luca\AppData\Local\Temp\tp10693af4_61b4_43d8_bb9f_dcac35089654.png</param.screenshot>
     <param.version>1.0</param.version>
     <param.products.name>
       <item>Datafeed Toolbox</item>
